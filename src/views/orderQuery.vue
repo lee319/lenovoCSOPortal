@@ -91,7 +91,7 @@
                                h('Button', {
                                    props: {
                                        type:'warning',
-                                       suze:'small'
+                                       suze:'small' 
                                    },
                                    style: {
                                        marginRight:'5px'

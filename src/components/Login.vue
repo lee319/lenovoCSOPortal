@@ -1,5 +1,5 @@
 <template>
-    <div class="login-vue" :style="bg">
+    <div class="login-vue" :style='bg'>
         <div class="container">
             <p class="title">WELCOME</p>
             <div class="input-c">
@@ -10,19 +10,18 @@
                 <Input type="password" v-model="pwd" prefix="md-lock" placeholder="密码" clearable @on-blur="verifyPwd"/>
                 <p class="error">{{pwdError}}</p>
             </div>
-            <Button :loading="isShowLoading" class="submit" type="primary" @click="submit">登陆</Button>
-            <p class="account"><span @click="register">注册账号</span> | <span @click="forgetPwd">忘记密码</span></p>
+            <Button :loading="isShowLoading" class="submit" type="primary" @click="submit">登录</Button>
+            <!-- <span class="account"><span @click="register">注册账号</span> | <span @click="forgetPwd">忘记密码</span></p> -->
         </div>
     </div>
 </template>
-
 <script>
 export default {
     name: 'login',
     data() {
         return {
-            account: '',
-            pwd: '',
+            account: 'admin',
+            pwd: 'admin',
             accountError: '',
             pwdError: '',
             isShowLoading: false,
@@ -43,27 +42,33 @@ export default {
     methods: {
         verifyAccount(e) {
             if (this.account !== 'admin') {
-                this.accountError = '账号为admin'
+                this.accountError = '输入的账号不正确'
             } else {
                 this.accountError = ''
             }
         },
         verifyPwd(e) {
             if (this.pwd !== 'admin') {
-                this.pwdError = '密码为admin'
+                this.accountError = '请输入正确的密码'
             } else {
                 this.pwdError = ''
             }
         },
-        register() {
-            console.log('注册账号')
-            // console.log('请输入正确的账号')
-        },
-        forgetPwd() {
-            console.log('忘记密码')
-            // console.log('请输入正确的密码')
-        },
+        // register() {
+        //     console.log('注册账号')
+        // },
+        // forgetPwd() {
+        //     console.log('忘记密码')
+        // },
         submit() {
+            // let self = this;
+            // self.$http.post(this.baseURL + '/login',{account:self.username,pwd:self.pwd}).then(response => {
+            //     console.log(response,'res')
+            //     if(response.data.code == 200) {
+            //         // this.data1 = response.data.data;
+            //         console.log(this.data1,'data1')
+            //     }  
+            // })
             if (this.account === 'admin' && this.pwd === 'admin') {
                 this.isShowLoading = true
                 // 登陆成功 设置用户信息
@@ -71,19 +76,53 @@ export default {
                 localStorage.setItem('userName', 'lee')
                 // 登陆成功 假设这里是后台返回的 token
                 localStorage.setItem('token', 'i_am_token')
+                //  localStorage.setItem('token', response.data.token)
                 this.$router.push({path: this.redirect || '/'})
             } else {
                 if (this.account !== 'admin') {
-                    this.accountError = '账号为admin'
+                    this.accountError = '请输入您的账号'
                 } 
-
                 if (this.pwd !== 'admin') {
-                    this.pwdError = '密码为admin'
+                    this.pwdError = '请输入您的密码'
                 } 
             }
         }
+        // submit() {
+        //     this.$refs['loginForm'].validate(valid => {
+        //         if (valid) {
+        //         this.$store.dispatch('setLoading', true)
+        //         getToken(this.loginForm.username, this.loginForm.password)
+        //             .then(response => {
+        //             sessionStorage.setItem('currentUser', JSON.stringify({
+        //                 id: response.data.userId,
+        //                 name: response.data.username
+        //             }))
+        //             sessionStorage.setItem('token', response.data.token)
+        //             sessionStorage.setItem('routers', JSON.stringify(response.data.routers))
+
+        //             // 初始化首页路由
+        //             this.initIndexRouter()
+
+        //             let redirect = decodeURIComponent(
+        //                 this.$route.query.redirect || "/"
+        //             )
+        //             this.$router.push(redirect);
+        //             this.$store.dispatch('setLoading', false)
+        //             })
+        //             .catch(error => {
+        //             this.$store.dispatch('setLoading', false)
+        //             this.$message({
+        //                 showClose: true,
+        //                 message: error,
+        //                 type: 'error'
+        //             })
+        //             })
+        //         }
+        //     })
+        //     },
+        }
     }
-}
+
 </script>
 
 <style>
@@ -93,8 +132,7 @@ export default {
     justify-content: center;
     align-items: center;
     color: #fff;
-    /* background:url('../assets/imgs/bg01.jpg');
-    background-size:100% 100%; */
+    background:url('../assets/imgs/bg02.jpg');
 }
 .login-vue .container {
     background: rgba(255, 255, 255, .5);
@@ -106,7 +144,7 @@ export default {
 .login-vue .ivu-input {
     background-color: transparent;
     color: #fff;
-    outline: #fff;
+    outline: rgb(27, 9, 9);
     border-color: #fff;
 }
 .login-vue ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

@@ -77,7 +77,7 @@
             <div class='loui-search-filed' style='margin:20px 2px;padding: 15px 36px 10px 0;'>
                 <Button type="primary" @click="modalAddBtn" style='padding:6px 20px'>Add</Button>
             </div>
-            <Modal v-model="modalAdd" title="Add" width='600'>
+            <Modal v-model="modalAdd" title="Add" width='500'>
                 <div slot="footer">
                     <a @click="addCancel" class="span">取消</a>
                     <Button @click="addOk" type="primary">确定</Button>
@@ -248,7 +248,7 @@ export default {
                                     type:'error',
                                     size:'small',
                                     width:'150',
-                                    placement:'bottom-start'
+                                    placement:'bottom'
                                 },
                                 on: {
                                     'on-click': () => {

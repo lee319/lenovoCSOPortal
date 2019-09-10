@@ -4,7 +4,7 @@
         <aside :class="asideClassName">
             <!-- logo -->
             <div class="logo-c">
-                <img src="../assets/imgs/logos.png" alt="logo" class="logo">
+                <!-- <img src="../assets/imgs/logos.png" alt="logo" class="logo"> -->
                 <span v-show="isShowAsideTitle">Lenovo CSO Portal</span>
             </div>
             <!-- 菜单栏 -->
@@ -156,7 +156,7 @@ export default {
             // 面包屑
             crumbs: '主页',
             userName: '',
-            userImg: '',
+            userImg: ''
         }
     },
     created() {
@@ -402,7 +402,7 @@ export default {
         },
         // 激活标签
         activeTag(i) {
-            this.gotoPage(this.tagsArry[i].name)
+            this.gotoPage(this.tagsArry[i].name);
         },
         // 消息通知
         info() {

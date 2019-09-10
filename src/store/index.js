@@ -8,7 +8,7 @@ const store = new Vuex.Store({
         // 左侧菜单栏数据
         menuItems: [
             {
-                name: 'home', // 要跳转的路由名称 不是路径
+                name: 'home', // 要跳转的路由名称，不是路径
                 size: 18, // icon大小
                 type: 'md-home', // icon类型
                 text: 'Home' // 文本内容
@@ -95,7 +95,32 @@ const store = new Vuex.Store({
                         text: 'Material Query'  //材料查询
                     }
                 ]
-            }
+            },
+            {
+                size: 18,
+                text: 'Config Management',//配置管理
+                type: 'ios-paper',
+                children: [
+                    {
+                        size: 18,
+                        type: 'ios-person-outline',
+                        name: 'userManagement',
+                        text: 'UserManagement'//用户管理
+                    },
+                    {
+                        size: 18,
+                        type: 'ios-cog-outline',
+                        name: 'menuManagement',
+                        text: 'MenuManagement'//菜单管理
+                    },
+                    {
+                        size: 18,
+                        type:'ios-cog-outline',
+                        name: 'roleManagement',
+                        text: 'RoleManagement' //角色管理
+                    }
+                ]
+            },
         ],
     },
     mutations: {

@@ -10,11 +10,6 @@ const commonRoutes = [
         component: () => import('../components/Login.vue')
     },
     {path: '/', redirect: '/home'}
-    // {
-    //     path: '/orderDetails',
-    //     name: 'orderDetails',
-    //    component: () => import('../components/orderDetails.vue')
-    // }
 ] 
 
 // 需要通过后台数据来生成的组件
@@ -79,6 +74,21 @@ export const asyncRoutes = {
         name: 'materialQuery',
         component: () => import('../views/materialQuery.vue')
     },
+    'userManagement': {
+        path:'userManagement',
+        name:'userManagement',
+        component: () => import('../views/userManagement.vue')
+    },
+    'menuManagement': {
+        path:'menuManagement',
+        name:'menuManagement',
+        component: () => import('../views/menuManagement.vue')
+    },
+    'roleManagement': {
+        path:'roleManagement',
+        name:'roleManagement',
+        component: () => import('../views/roleManagement.vue')
+    }
 }
 
 const createRouter = () => new Router({

@@ -19,15 +19,7 @@ module.exports = {
         }
       }
     },
-    // proxyTable: {
-    //   '/api' : {
-    //     target: 'http://10.122.189.27:9898',
-    //     changeOrigin: true, //允许跨域
-    //     pathRewrite: {
-    //       '^/api': '/api'
-    //     }
-    //   }
-    // },
+   
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
