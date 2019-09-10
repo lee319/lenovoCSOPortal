@@ -7,6 +7,7 @@
                 <FormItem label="销售凭证:" :label-width="120">
                     <Input v-model='info.input' style='width:220px;'></Input>
                 </FormItem>
+                
                 <FormItem  :label-width="50">
                     <Button type="primary" @click='query()'>查询</Button>
                 </FormItem>
